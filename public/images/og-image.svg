@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Joyería Diamante">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0" stop-color="#26262b"/>
+      <stop offset="1" stop-color="#0c0c0e"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e3c77e"/>
+      <stop offset="1" stop-color="#a07e2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g fill="none" stroke="url(#gold)" stroke-width="5">
+    <circle cx="600" cy="250" r="90"/>
+    <path d="M552 202 L600 120 L648 202 L600 238 Z" fill="url(#gold)" stroke-width="2"/>
+  </g>
+  <text x="600" y="450" text-anchor="middle" font-family="Georgia, serif" font-size="68" letter-spacing="8" fill="#f3efe7">JOYERÍA DIAMANTE</text>
+  <text x="600" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" letter-spacing="6" fill="#c9a24b">Piezas personalizadas en oro y plata</text>
+</svg>

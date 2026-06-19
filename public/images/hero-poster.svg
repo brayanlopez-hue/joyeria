@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="Joyería Diamante">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+      <stop offset="0" stop-color="#26262b"/>
+      <stop offset="0.55" stop-color="#161618"/>
+      <stop offset="1" stop-color="#0c0c0e"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e3c77e"/>
+      <stop offset="1" stop-color="#a07e2e"/>
+    </linearGradient>
+    <radialGradient id="spark" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#f4e3b0" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#f4e3b0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <g fill="url(#spark)">
+    <circle cx="300" cy="240" r="120"/>
+    <circle cx="1640" cy="320" r="90"/>
+    <circle cx="1500" cy="820" r="140"/>
+    <circle cx="380" cy="780" r="80"/>
+  </g>
+  <g fill="none" stroke="url(#gold)" stroke-width="6" opacity="0.85">
+    <circle cx="960" cy="470" r="150"/>
+    <path d="M880 392 L960 250 L1040 392 L960 452 Z" fill="url(#gold)" stroke-width="3"/>
+    <path d="M880 392 L1040 392" stroke-width="3"/>
+  </g>
+  <text x="960" y="760" text-anchor="middle" font-family="Georgia, serif" font-size="84" letter-spacing="14" fill="#f3efe7">JOYERÍA DIAMANTE</text>
+  <text x="960" y="830" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" letter-spacing="10" fill="#c9a24b">ORO · PLATA · DISEÑO PERSONALIZADO</text>
+</svg>
