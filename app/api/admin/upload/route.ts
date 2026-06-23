@@ -24,6 +24,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Formato no permitido (jpg, png, webp, avif)" }, { status: 400 });
   }
 
+  // Validar magic bytes del archivo (no confiar solo en la extensión)
+  const peek = Buffer.from(await file.slice(0, 12).arrayBuffer());
+  const isJpeg = peek[0] === 0xff && peek[1] === 0xd8;
+  const isPng = peek[0] === 0x89 && peek[1] === 0x50;
+  const isWebp = peek[8] === 0x57 && peek[9] === 0x45 && peek[10] === 0x42 && peek[11] === 0x50;
+  const isAvif = peek[4] === 0x66 && peek[5] === 0x74 && peek[6] === 0x79 && peek[7] === 0x70;
+  if (!isJpeg && !isPng && !isWebp && !isAvif) {
+    return NextResponse.json({ error: "El archivo no es una imagen válida" }, { status: 400 });
+  }
+
   const safeName = `${Date.now()}${ext}`;
   const dir = join(process.cwd(), "public", "images", "products");
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });

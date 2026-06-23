@@ -20,7 +20,15 @@ export async function PUT(req: Request, { params }: Ctx) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   }
   const { slug } = await params;
-  const update = await req.json();
+  const raw = await req.json();
+  // Solo permitir campos conocidos para evitar prototype pollution
+  const ALLOWED_KEYS = new Set([
+    "name","excerpt","description","metal","purity","category",
+    "subcategory","priceFrom","featured","engraving","images","slug",
+  ]);
+  const update = Object.fromEntries(
+    Object.entries(raw).filter(([k]) => ALLOWED_KEYS.has(k))
+  );
   const products = readProducts();
   const idx = products.findIndex((p) => p.slug === slug);
   if (idx === -1) return NextResponse.json({ error: "No encontrado" }, { status: 404 });
