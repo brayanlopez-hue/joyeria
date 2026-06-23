@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297" font-family="Georgia, 'Times New Roman', serif">
+  <!-- Guía de tallas imprimible de Joyería Diamante. Imprime al 100% (sin ajuste) para que el medidor quede a escala real. -->
+  <rect width="210" height="297" fill="#faf8f3"/>
+
+  <!-- Encabezado -->
+  <text x="105" y="22" text-anchor="middle" font-size="9" fill="#0e0e10">Joyería Diamante</text>
+  <text x="105" y="31" text-anchor="middle" font-size="5" fill="#a07e2e" letter-spacing="1">GUÍA DE TALLAS DE ANILLOS</text>
+  <line x1="75" y1="36" x2="135" y2="36" stroke="#c9a24b" stroke-width="0.4"/>
+
+  <!-- Instrucciones -->
+  <text x="20" y="50" font-size="4" fill="#2a2a2e" font-family="Arial, sans-serif">Cómo medir:</text>
+  <text x="20" y="57" font-size="3.4" fill="#2a2a2e" font-family="Arial, sans-serif">1. Coloca un anillo que ya uses sobre los círculos hasta encontrar el que coincide con su diámetro interior.</text>
+  <text x="20" y="63" font-size="3.4" fill="#2a2a2e" font-family="Arial, sans-serif">2. IMPORTANTE: imprime esta hoja al 100% (tamaño real, sin "ajustar a página").</text>
+
+  <!-- Tabla de tallas -->
+  <text x="20" y="78" font-size="5" fill="#0e0e10">Tabla de equivalencias</text>
+  <g font-family="Arial, sans-serif" font-size="3.6">
+    <text x="22" y="87" fill="#8d8d86">Talla MX</text>
+    <text x="52" y="87" fill="#8d8d86">Talla US</text>
+    <text x="82" y="87" fill="#8d8d86">Diámetro (mm)</text>
+    <line x1="20" y1="90" x2="120" y2="90" stroke="#cfc8bb" stroke-width="0.3"/>
+    <g fill="#2a2a2e">
+      <text x="22" y="97">4</text><text x="52" y="97">4</text><text x="82" y="97">14.8</text>
+      <text x="22" y="104">5</text><text x="52" y="104">5</text><text x="82" y="104">15.6</text>
+      <text x="22" y="111">6</text><text x="52" y="111">6</text><text x="82" y="111">16.5</text>
+      <text x="22" y="118">7</text><text x="52" y="118">7</text><text x="82" y="118">17.3</text>
+      <text x="22" y="125">8</text><text x="52" y="125">8</text><text x="82" y="125">18.1</text>
+      <text x="22" y="132">9</text><text x="52" y="132">9</text><text x="82" y="132">18.9</text>
+      <text x="22" y="139">10</text><text x="52" y="139">10</text><text x="82" y="139">19.8</text>
+      <text x="22" y="146">11</text><text x="52" y="146">11</text><text x="82" y="146">20.6</text>
+      <text x="22" y="153">12</text><text x="52" y="153">12</text><text x="82" y="153">21.4</text>
+    </g>
+  </g>
+
+  <!-- Medidor de anillos (círculos a escala real, diámetro interior en mm) -->
+  <text x="20" y="172" font-size="5" fill="#0e0e10">Medidor (tamaño real)</text>
+  <g>
+    <!-- Fila 1: tallas 5, 7, 9 -->
+    <circle cx="45" cy="200" r="7.8" fill="none" stroke="#c9a24b" stroke-width="0.4"/>
+    <text x="45" y="201.5" text-anchor="middle" font-size="3.6" font-family="Arial, sans-serif" fill="#a07e2e">5</text>
+    <circle cx="105" cy="200" r="8.65" fill="none" stroke="#c9a24b" stroke-width="0.4"/>
+    <text x="105" y="201.5" text-anchor="middle" font-size="3.6" font-family="Arial, sans-serif" fill="#a07e2e">7</text>
+    <circle cx="165" cy="200" r="9.45" fill="none" stroke="#c9a24b" stroke-width="0.4"/>
+    <text x="165" y="201.5" text-anchor="middle" font-size="3.6" font-family="Arial, sans-serif" fill="#a07e2e">9</text>
+    <!-- Fila 2: tallas 10, 11, 12 -->
+    <circle cx="45" cy="240" r="9.9" fill="none" stroke="#c9a24b" stroke-width="0.4"/>
+    <text x="45" y="241.5" text-anchor="middle" font-size="3.6" font-family="Arial, sans-serif" fill="#a07e2e">10</text>
+    <circle cx="105" cy="240" r="10.3" fill="none" stroke="#c9a24b" stroke-width="0.4"/>
+    <text x="105" y="241.5" text-anchor="middle" font-size="3.6" font-family="Arial, sans-serif" fill="#a07e2e">11</text>
+    <circle cx="165" cy="240" r="10.7" fill="none" stroke="#c9a24b" stroke-width="0.4"/>
+    <text x="165" y="241.5" text-anchor="middle" font-size="3.6" font-family="Arial, sans-serif" fill="#a07e2e">12</text>
+  </g>
+
+  <text x="105" y="285" text-anchor="middle" font-size="3" fill="#8d8d86" font-family="Arial, sans-serif">Valores de referencia. Para una medición exacta, visítanos o escríbenos por WhatsApp. · joyeriadiamante.mx</text>
+</svg>

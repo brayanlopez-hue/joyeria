@@ -1,24 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
-import { siteConfig, categories, mainNav } from "@/lib/site";
-
-/** Íconos de marca (lucide ya no incluye logos de redes sociales). */
-function InstagramIcon({ size = 18 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <rect x="2" y="2" width="20" height="20" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
-    </svg>
-  );
-}
-function FacebookIcon({ size = 18 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M14 9h3l.5-3H14V4.2c0-.9.3-1.5 1.6-1.5H17V.1C16.6.1 15.6 0 14.4 0 11.9 0 10.2 1.5 10.2 4.1V6H7.5v3h2.7v8H14V9Z" />
-    </svg>
-  );
-}
+import { siteConfig, categories, mainNav, phoneTel } from "@/lib/site";
+import { InstagramIcon, FacebookIcon } from "@/components/ui/SocialIcons";
 
 /** Pie de página con navegación, categorías y datos de contacto. */
 export function Footer() {
@@ -26,22 +10,36 @@ export function Footer() {
     <footer className="mt-24 border-t border-graphite/40 bg-ink text-cream">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <p className="font-display text-xl">
-            Joyería <span className="text-gold-gradient font-semibold">Diamante</span>
-          </p>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-stone-2">
+          {/* Sello circular en footer — luce bien sobre fondo oscuro */}
+          <div className="mb-4 flex items-center gap-3">
+            <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-1 ring-[#c9a24b]/50">
+              <Image
+                src="/images/logo-seal.jpg"
+                alt="Sello Joyería Diamante López"
+                fill
+                sizes="56px"
+                className="object-cover"
+              />
+            </div>
+            <p className="font-display text-xl">
+              Diamante <span className="text-gold-gradient font-semibold">López</span>
+            </p>
+          </div>
+          <p className="max-w-xs text-sm leading-relaxed text-stone-2">
             {siteConfig.tagline}. Diseño, personalización y taller con garantía de
             metales.
           </p>
-          <div className="mt-5 flex gap-3">
+          <div className="mt-5 flex items-center gap-3">
+            {/* Instagram destacado (canal clave para joyería) */}
             <a
               href={siteConfig.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="rounded-full border border-graphite p-2 text-stone-2 transition-colors hover:border-gold hover:text-gold"
+              aria-label={`Instagram ${siteConfig.social.instagramHandle}`}
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF] px-4 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.03]"
             >
               <InstagramIcon size={18} />
+              {siteConfig.social.instagramHandle}
             </a>
             <a
               href={siteConfig.social.facebook}
@@ -96,7 +94,7 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Phone size={16} className="shrink-0 text-gold" />
-              <a href={`tel:${siteConfig.whatsapp}`} className="hover:text-cream">
+              <a href={`tel:${phoneTel}`} className="hover:text-cream">
                 {siteConfig.phoneDisplay}
               </a>
             </li>

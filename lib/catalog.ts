@@ -1,7 +1,7 @@
 import "server-only";
 import type { Product } from "./types";
 import type { Metal } from "./site";
-import { products as sampleProducts } from "./data/products";
+import { readProducts } from "./admin-db";
 import { isSanityConfigured, sanityClient } from "./sanity.client";
 
 /**
@@ -30,7 +30,7 @@ async function fetchFromSanity(filter: string): Promise<Product[]> {
 
 export async function getAllProducts(): Promise<Product[]> {
   if (isSanityConfigured) return fetchFromSanity("");
-  return sampleProducts;
+  return readProducts();
 }
 
 export async function getFeaturedProducts(limit = 6): Promise<Product[]> {

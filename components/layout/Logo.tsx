@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 
-/** Wordmark de la marca: serif + acento dorado y un pequeño diamante. */
+/** Wordmark de la marca con sello circular. */
 export function Logo({
   className = "",
   light = false,
@@ -12,34 +13,23 @@ export function Logo({
     <Link
       href="/"
       aria-label="Joyería Diamante — Inicio"
-      className={`group inline-flex items-center gap-2 ${className}`}
+      className={`group inline-flex items-center gap-2.5 ${className}`}
     >
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        aria-hidden
-        className="text-gold transition-transform duration-300 group-hover:rotate-12"
-      >
-        <path
-          d="M12 2 L20 9 L12 22 L4 9 Z"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinejoin="round"
+      {/* Sello circular — se oculta si el archivo no existe (fallback al ícono SVG) */}
+      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-[#c9a24b]/40 transition-transform duration-300 group-hover:scale-105">
+        <Image
+          src="/images/logo-seal.jpg"
+          alt="Sello Joyería Diamante"
+          fill
+          sizes="36px"
+          className="object-cover"
+          priority
         />
-        <path
-          d="M4 9 H20 M12 2 L9 9 L12 22 M12 2 L15 9 L12 22"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="0.9"
-          opacity="0.7"
-        />
-      </svg>
+      </div>
       <span
         className={`font-display text-lg tracking-wide ${light ? "text-ivory" : "text-ink"}`}
       >
-        Joyería <span className="text-gold-gradient font-semibold">Diamante</span>
+        Diamante <span className={`font-semibold ${light ? "text-[#c9a24b]" : "text-gold-gradient"}`}>López</span>
       </span>
     </Link>
   );

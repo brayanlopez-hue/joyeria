@@ -9,6 +9,13 @@ function escapeHtml(s: string): string {
   );
 }
 
+const TIPOS_CONSULTA: Record<string, string> = {
+  diseno: "Diseño personalizado (desde cero)",
+  catalogo: "Cotización de catálogo",
+  compostura: "Compostura / ajuste",
+  general: "Consulta general",
+};
+
 /** Recibe el formulario de contacto y lo envía por email. */
 export async function POST(req: Request) {
   try {
@@ -17,6 +24,7 @@ export async function POST(req: Request) {
     const email = String(body.email ?? "").trim();
     const telefono = String(body.telefono ?? "").trim();
     const mensaje = String(body.mensaje ?? "").trim();
+    const tipo = TIPOS_CONSULTA[String(body.tipoConsulta ?? "general")] ?? "Consulta general";
 
     if (!nombre || !email || !mensaje) {
       return NextResponse.json({ error: "Faltan campos requeridos." }, { status: 400 });
@@ -24,6 +32,7 @@ export async function POST(req: Request) {
 
     const html = `
       <h2>Nuevo mensaje de contacto</h2>
+      <p><strong>Tipo de consulta:</strong> ${escapeHtml(tipo)}</p>
       <p><strong>Nombre:</strong> ${escapeHtml(nombre)}</p>
       <p><strong>Correo:</strong> ${escapeHtml(email)}</p>
       <p><strong>Teléfono:</strong> ${escapeHtml(telefono) || "—"}</p>
@@ -31,7 +40,7 @@ export async function POST(req: Request) {
     `;
 
     await sendMail({
-      subject: `Contacto web — ${nombre}`,
+      subject: `Contacto web (${tipo}) — ${nombre}`,
       html,
       replyTo: email,
     });

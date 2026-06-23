@@ -7,12 +7,14 @@ export function SectionHeading({
   description,
   align = "center",
   as: As = "h2",
+  light = false,
 }: {
   eyebrow?: string;
   title: ReactNode;
   description?: string;
   align?: "center" | "left";
   as?: "h1" | "h2";
+  light?: boolean;
 }) {
   const alignment = align === "center" ? "items-center text-center" : "items-start text-left";
   return (
@@ -22,10 +24,10 @@ export function SectionHeading({
           {eyebrow}
         </span>
       )}
-      <As className="font-display text-3xl text-ink sm:text-4xl">{title}</As>
+      <As className={`font-display text-3xl sm:text-4xl ${light ? "text-ivory" : "text-ink"}`}>{title}</As>
       <span className={`gold-rule my-5 ${align === "center" ? "" : "ml-0"}`} />
       {description && (
-        <p className="max-w-2xl text-base leading-relaxed text-graphite/80">
+        <p className={`max-w-2xl text-base leading-relaxed ${light ? "text-stone-2" : "text-graphite/80"}`}>
           {description}
         </p>
       )}

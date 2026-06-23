@@ -56,7 +56,7 @@ export function contextualMessage(ctx: QuoteContext = {}): string {
 export function messageForPathname(pathname: string): string {
   if (pathname === "/" || pathname === "") return DEFAULT_MESSAGE;
   if (pathname.startsWith("/taller")) {
-    return "Hola, necesito información sobre el servicio de taller (compostura/ajuste de talla).";
+    return "Hola, quiero cotizar mi reparación en el taller (compostura/ajuste de talla).";
   }
   if (pathname.startsWith("/contacto")) {
     return "Hola, me gustaría ponerme en contacto con Joyería Diamante.";

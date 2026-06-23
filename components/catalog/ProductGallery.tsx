@@ -24,10 +24,11 @@ export function ProductGallery({ images }: { images: ProductImage[] }) {
 
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
+    // El índice inicial es 0 (estado por defecto); sincronizamos vía eventos
+    // para evitar setState síncrono dentro del efecto.
+    emblaApi.on("select", onSelect).on("reInit", onSelect);
     return () => {
-      emblaApi.off("select", onSelect);
+      emblaApi.off("select", onSelect).off("reInit", onSelect);
     };
   }, [emblaApi, onSelect]);
 

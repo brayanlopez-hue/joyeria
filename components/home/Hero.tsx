@@ -48,15 +48,16 @@ export function Hero() {
           {...fade(0.1)}
           className="font-display text-4xl leading-tight sm:text-6xl"
         >
-          Piezas que se vuelven{" "}
-          <span className="text-gold-gradient">historia</span>
+          Piezas únicas en{" "}
+          <span className="text-gold-gradient">oro y plata</span> hechas a tu
+          medida
         </motion.h1>
         <motion.p
           {...fade(0.2)}
           className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-stone-2 sm:text-lg"
         >
-          Joyería personalizada en oro y plata: anillos de compromiso, esclavas
-          grabadas, cadenas, dijes y servicio de taller. Hecho a tu medida.
+          Diseñamos anillos de compromiso, esclavas grabadas, cadenas y dijes, y
+          reparamos tus joyas en nuestro taller de composturas.
         </motion.p>
         <motion.div
           {...fade(0.3)}

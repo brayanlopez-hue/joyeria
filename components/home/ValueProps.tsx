@@ -1,30 +1,32 @@
 import { ShieldCheck, Sparkles, Truck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const items = [
   {
     icon: ShieldCheck,
-    title: "Garantía de metales",
+    title: "Garantía de autenticidad del metal",
     text: "Oro y plata certificados, con quilataje y ley garantizados en cada pieza.",
   },
   {
     icon: Sparkles,
-    title: "Personalización",
+    title: "Diseños personalizados",
     text: "Diseñamos a tu medida: grabados, nombres y figuras únicas para ti.",
   },
   {
     icon: Truck,
-    title: "Envíos seguros",
+    title: "Envíos seguros y entregas rápidas",
     text: "Enviamos a todo el país con empaque discreto y seguimiento.",
   },
 ];
 
-/** Sección de propuesta de valor (garantía, personalización, envíos). */
+/** Sección "¿Por qué elegirnos?": garantía, personalización y envíos. */
 export function ValueProps() {
   return (
     <section className="border-y border-stone-1 bg-cream/60 py-16">
       <Container>
-        <div className="grid gap-8 sm:grid-cols-3">
+        <SectionHeading eyebrow="Por qué elegirnos" title="¿Por qué elegirnos?" />
+        <div className="mt-12 grid gap-8 sm:grid-cols-3">
           {items.map(({ icon: Icon, title, text }) => (
             <div key={title} className="flex flex-col items-center text-center">
               <span className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-white text-gold-deep">

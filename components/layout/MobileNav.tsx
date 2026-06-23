@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import { mainNav, categories, siteConfig } from "@/lib/site";
+import { mainNav, categories, siteConfig, phoneTel } from "@/lib/site";
 
 /**
  * Menú móvil a pantalla completa (mobile-first). Limpio, con la navegación
@@ -78,7 +78,7 @@ export function MobileNav({
           </nav>
 
           <div className="mt-auto px-5 py-6 text-sm text-stone-3">
-            <a href={`tel:${siteConfig.whatsapp}`} className="block">
+            <a href={`tel:${phoneTel}`} className="block">
               {siteConfig.phoneDisplay}
             </a>
             <p>{siteConfig.address}</p>

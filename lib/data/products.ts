@@ -208,6 +208,30 @@ const seeds: Seed[] = [
     subcategory: "torzal",
     priceFrom: 1650,
   },
+  {
+    slug: "cadena-italiana-oro",
+    name: "Cadena Italiana",
+    excerpt: "Tejido italiano fino y flexible en oro de 14k.",
+    description:
+      "Cadena de tejido italiano en oro de 14 quilates: ligera, flexible y con un brillo uniforme. Un clásico versátil para uso diario o para portar un dije.",
+    metal: "oro",
+    purity: "14k",
+    category: "cadenas",
+    subcategory: "italiana",
+    priceFrom: 7400,
+  },
+  {
+    slug: "cadena-italiana-plata",
+    name: "Cadena Italiana en Plata",
+    excerpt: "Tejido italiano en plata .925.",
+    description:
+      "Cadena de tejido italiano en plata ley .925, con caída elegante y acabado brillante. Una opción accesible y atemporal.",
+    metal: "plata",
+    purity: ".925",
+    category: "cadenas",
+    subcategory: "italiana",
+    priceFrom: 1250,
+  },
 
   // ── Dijes ───────────────────────────────────────────────
   {
@@ -221,6 +245,31 @@ const seeds: Seed[] = [
     category: "dijes",
     subcategory: "cristo",
     priceFrom: 2400,
+    featured: true,
+  },
+  {
+    slug: "dije-santa-muerte-plata",
+    name: "Dije de Santa Muerte",
+    excerpt: "Figura de la Santa Muerte en plata .925.",
+    description:
+      "Dije de la Santa Muerte en plata ley .925, con detalle fino en la guadaña y el manto. Pieza de devoción popular, con argolla reforzada.",
+    metal: "plata",
+    purity: ".925",
+    category: "dijes",
+    subcategory: "muerte",
+    priceFrom: 890,
+  },
+  {
+    slug: "dije-santa-muerte-oro",
+    name: "Dije de Santa Muerte en Oro",
+    excerpt: "Santa Muerte en oro de 14k con relieve detallado.",
+    description:
+      "Dije de la Santa Muerte en oro de 14 quilates, con relieve detallado. Combínalo con cualquiera de nuestras cadenas.",
+    metal: "oro",
+    purity: "14k",
+    category: "dijes",
+    subcategory: "muerte",
+    priceFrom: 2700,
     featured: true,
   },
   {
@@ -261,8 +310,42 @@ const seeds: Seed[] = [
   },
 ];
 
+/**
+ * Slugs con foto real (public/images/products/photo-<slug>.jpg).
+ * El resto usa el placeholder SVG generado por `gallery()`.
+ * Los dijes religiosos (Santa Muerte, San Judas) no tienen foto de stock
+ * con fondo blanco apropiada: súbelas tú desde /admin.
+ */
+const PHOTO_SLUGS = new Set<string>([
+  "anillo-compromiso-solitario-oro",
+  "anillo-compromiso-pave-oro",
+  "anillo-promesa-trenzado-plata",
+  "anillo-promesa-infinito-oro",
+  "pulsera-tipo-rolex-oro",
+  "pulsera-de-pulso-plata",
+  "esclava-nombre-oro",
+  "esclava-nombre-plata",
+  "esclava-diseno-grabado-oro",
+  "cadena-confirmacion-oro",
+  "cadena-xv-anos-oro",
+  "cadena-torzal-oro",
+  "cadena-torzal-plata",
+  "cadena-italiana-oro",
+  "cadena-italiana-plata",
+  "dije-cristo-oro",
+  "dije-san-benito-plata",
+  "dije-figura-personalizada-oro",
+]);
+
+function imagesFor(s: Seed) {
+  if (PHOTO_SLUGS.has(s.slug)) {
+    return [{ src: `/images/products/photo-${s.slug}.jpg`, alt: s.name }];
+  }
+  return gallery(s.category, s.metal, s.name);
+}
+
 export const products: Product[] = seeds.map((s, i) => ({
   _id: `seed-${i + 1}`,
   ...s,
-  images: gallery(s.category, s.metal, s.name),
+  images: imagesFor(s),
 }));

@@ -15,19 +15,23 @@ export const siteConfig = {
   locale: "es_MX",
 
   // Contacto / conversión
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "521234567890", // formato internacional sin '+'
-  phoneDisplay: "+52 123 456 7890",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "525585868498", // formato internacional sin '+'
+  phoneDisplay: "+52 55 8586 8498",
   email: "contacto@joyeriadiamante.mx",
-  address: "Av. Reforma 123, Centro, Ciudad de México, CDMX",
+  address: "Av. 5 de Mayo 40, Int. 301 Piso 3, Centro Histórico, Cuauhtémoc, 06000 CDMX",
   // Embed de Google Maps (se sustituye por la API key real en .env)
   mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "",
-  mapsQuery: "Joyería+Diamante+Centro+CDMX",
+  mapsQuery: "Av.+5+de+Mayo+40+Centro+Histórico+Cuauhtémoc+Ciudad+de+México",
 
   social: {
     instagram: "https://instagram.com/joyeriadiamante",
+    instagramHandle: "@joyeriadiamante",
     facebook: "https://facebook.com/joyeriadiamante",
   },
 } as const;
+
+/** Teléfono normalizado para enlaces `tel:` (solo dígitos y '+'). */
+export const phoneTel = siteConfig.phoneDisplay.replace(/[^\d+]/g, "");
 
 /** Metales disponibles para el filtro dinámico del catálogo. */
 export const METALS = [
@@ -42,6 +46,11 @@ export interface Subcategory {
   name: string;
   /** Activa el módulo de grabado en vivo (esclavas con nombre). */
   engraving?: boolean;
+  /**
+   * Grupo de presentación para los filtros (ej. "Ocasiones Especiales").
+   * Es puramente visual: el filtrado sigue siendo por `slug`.
+   */
+  group?: string;
 }
 
 export interface Category {
@@ -79,23 +88,24 @@ export const categories: Category[] = [
   {
     slug: "cadenas",
     name: "Cadenas",
-    blurb: "Confirmación, XV años y tejido tipo torzal.",
+    blurb: "Ocasiones especiales y estilos clásicos: confirmación, XV años, torzal e italiana.",
     subcategories: [
-      { slug: "confirmacion", name: "Confirmación" },
-      { slug: "xv-anos", name: "XV Años" },
-      { slug: "torzal", name: "Tipo Torzal" },
+      { slug: "confirmacion", name: "Confirmación", group: "Ocasiones Especiales" },
+      { slug: "xv-anos", name: "XV Años", group: "Ocasiones Especiales" },
+      { slug: "torzal", name: "Tipo Torzal", group: "Estilos Clásicos" },
+      { slug: "italiana", name: "Italiana", group: "Estilos Clásicos" },
     ],
   },
   {
     slug: "dijes",
     name: "Dijes",
-    blurb: "Cristo, San Judas, San Benito y diferentes figuras.",
+    blurb: "Galería de devoción y estilo: Cristo, San Judas, San Benito, Santa Muerte y figuras a la medida.",
     subcategories: [
-      { slug: "cristo", name: "Cristo" },
-      { slug: "muerte", name: "Muerte" },
-      { slug: "san-judas", name: "San Judas" },
-      { slug: "san-benito", name: "San Benito" },
-      { slug: "figuras", name: "Diferentes figuras" },
+      { slug: "cristo", name: "Cristo", group: "Religiosos y Protectores" },
+      { slug: "san-judas", name: "San Judas", group: "Religiosos y Protectores" },
+      { slug: "san-benito", name: "San Benito", group: "Religiosos y Protectores" },
+      { slug: "muerte", name: "Santa Muerte", group: "Culturales / Tendencia" },
+      { slug: "figuras", name: "Figuras varias", group: "Figuras Varias" },
     ],
   },
 ];

@@ -9,6 +9,17 @@ function buildHref(base: string, params: Record<string, string | undefined>): st
   return qs ? `${base}?${qs}` : base;
 }
 
+/** Agrupa subcategorías por su campo `group`, preservando el orden de declaración. */
+function groupSubcategories(subs: Subcategory[]): [string, Subcategory[]][] {
+  const map = new Map<string, Subcategory[]>();
+  for (const s of subs) {
+    const g = s.group ?? "";
+    if (!map.has(g)) map.set(g, []);
+    map.get(g)!.push(s);
+  }
+  return [...map.entries()];
+}
+
 const chipBase =
   "rounded-full border px-4 py-1.5 text-sm transition-colors whitespace-nowrap";
 const chipActive = "border-gold bg-gold/10 text-gold-deep font-medium";
@@ -16,8 +27,9 @@ const chipIdle = "border-stone-1 text-graphite hover:border-gold/60";
 
 /**
  * Filtros del catálogo por metal (Oro/Plata) y, opcionalmente, subcategoría.
- * Server component: usa enlaces con query params para que el filtrado sea
- * compartible y amigable con SEO (sin JS).
+ * Las subcategorías pueden mostrarse agrupadas (campo `group`) — ej. Cadenas
+ * en "Ocasiones Especiales" / "Estilos Clásicos". El filtrado siempre es por slug.
+ * Server component: usa enlaces con query params (compartible y SEO-friendly).
  */
 export function FilterBar({
   basePath,
@@ -30,6 +42,19 @@ export function FilterBar({
   activeSub?: string;
   subcategories?: Subcategory[];
 }) {
+  const hasGroups = subcategories?.some((s) => s.group) ?? false;
+
+  function SubChip({ s }: { s: Subcategory }) {
+    return (
+      <Link
+        href={buildHref(basePath, { metal, sub: s.slug })}
+        className={`${chipBase} ${activeSub === s.slug ? chipActive : chipIdle}`}
+      >
+        {s.name}
+      </Link>
+    );
+  }
+
   return (
     <div className="space-y-4">
       {/* Filtro por metal */}
@@ -56,25 +81,33 @@ export function FilterBar({
 
       {/* Filtro por subcategoría */}
       {subcategories && subcategories.length > 0 && (
-        <div className="flex flex-wrap items-center gap-2 overflow-x-auto no-scrollbar">
-          <span className="mr-1 text-xs uppercase tracking-wider text-stone-3">
-            Tipo
-          </span>
-          <Link
-            href={buildHref(basePath, { metal })}
-            className={`${chipBase} ${!activeSub ? chipActive : chipIdle}`}
-          >
-            Todas
-          </Link>
-          {subcategories.map((s) => (
+        <div className="space-y-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="mr-1 text-xs uppercase tracking-wider text-stone-3">
+              Tipo
+            </span>
             <Link
-              key={s.slug}
-              href={buildHref(basePath, { metal, sub: s.slug })}
-              className={`${chipBase} ${activeSub === s.slug ? chipActive : chipIdle}`}
+              href={buildHref(basePath, { metal })}
+              className={`${chipBase} ${!activeSub ? chipActive : chipIdle}`}
             >
-              {s.name}
+              Todas
             </Link>
-          ))}
+            {/* Sin grupos: lista plana junto a "Todas" */}
+            {!hasGroups && subcategories.map((s) => <SubChip key={s.slug} s={s} />)}
+          </div>
+
+          {/* Con grupos: un sub-encabezado por grupo */}
+          {hasGroups &&
+            groupSubcategories(subcategories).map(([group, subs]) => (
+              <div key={group} className="flex flex-wrap items-center gap-2">
+                <span className="mr-1 text-[11px] uppercase tracking-wider text-gold-deep/80">
+                  {group}
+                </span>
+                {subs.map((s) => (
+                  <SubChip key={s.slug} s={s} />
+                ))}
+              </div>
+            ))}
         </div>
       )}
     </div>

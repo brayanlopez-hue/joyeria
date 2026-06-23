@@ -46,6 +46,22 @@ export function ContactForm() {
       onSubmit={onSubmit}
       className="space-y-4 rounded-2xl border border-stone-1 bg-white p-6"
     >
+      <div>
+        <label className="mb-1 block text-sm font-medium text-ink">
+          Tipo de consulta
+        </label>
+        <select
+          name="tipoConsulta"
+          defaultValue="diseno"
+          className="w-full rounded-lg border border-stone-2 bg-ivory px-4 py-2.5 text-graphite outline-none focus:border-gold"
+        >
+          <option value="diseno">Diseño personalizado (desde cero)</option>
+          <option value="catalogo">Cotización de una pieza del catálogo</option>
+          <option value="compostura">Compostura / ajuste de taller</option>
+          <option value="general">Consulta general</option>
+        </select>
+      </div>
+
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1 block text-sm font-medium text-ink">Nombre</label>
@@ -83,12 +99,14 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-ink">Mensaje</label>
+        <label className="mb-1 block text-sm font-medium text-ink">
+          Cuéntanos tu idea
+        </label>
         <textarea
           name="mensaje"
           rows={4}
           required
-          placeholder="¿En qué podemos ayudarte?"
+          placeholder="Tipo de pieza, metal (oro/plata), ocasión, referencias o presupuesto…"
           className="w-full rounded-lg border border-stone-2 bg-ivory px-4 py-2.5 text-graphite outline-none focus:border-gold"
         />
       </div>

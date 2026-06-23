@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { FloatingWhatsApp } from "@/components/whatsapp/FloatingWhatsApp";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 
 // Serif para títulos, sans para lectura (auto-hospedadas por next/font).
 const playfair = Playfair_Display({
@@ -68,10 +66,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${playfair.variable} ${inter.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-ivory antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

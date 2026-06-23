@@ -1,31 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="Joyería Diamante">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Joyería Diamante — Fondo hero">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
-      <stop offset="0" stop-color="#26262b"/>
-      <stop offset="0.55" stop-color="#161618"/>
-      <stop offset="1" stop-color="#0c0c0e"/>
+    <radialGradient id="bg" cx="50%" cy="38%" r="85%">
+      <stop offset="0%" stop-color="#2b2318"/>
+      <stop offset="50%" stop-color="#161410"/>
+      <stop offset="100%" stop-color="#0a0908"/>
     </radialGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#e3c77e"/>
-      <stop offset="1" stop-color="#a07e2e"/>
-    </linearGradient>
-    <radialGradient id="spark" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#f4e3b0" stop-opacity="0.9"/>
-      <stop offset="1" stop-color="#f4e3b0" stop-opacity="0"/>
+    <radialGradient id="glow-c" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a24b" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#c9a24b" stop-opacity="0"/>
     </radialGradient>
+    <radialGradient id="glow-tl" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e3c77e" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#e3c77e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-br" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a07e2e" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#a07e2e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="lattice" x="0" y="0" width="70" height="70" patternUnits="userSpaceOnUse">
+      <path d="M35 2 L68 35 L35 68 L2 35 Z" fill="none" stroke="#c9a24b" stroke-width="0.5" opacity="0.22"/>
+    </pattern>
+    <pattern id="dots" x="0" y="0" width="140" height="140" patternUnits="userSpaceOnUse">
+      <circle cx="70" cy="70" r="1.5" fill="#e3c77e" opacity="0.35"/>
+    </pattern>
   </defs>
+
+  <!-- Base dark background -->
   <rect width="1920" height="1080" fill="url(#bg)"/>
-  <g fill="url(#spark)">
-    <circle cx="300" cy="240" r="120"/>
-    <circle cx="1640" cy="320" r="90"/>
-    <circle cx="1500" cy="820" r="140"/>
-    <circle cx="380" cy="780" r="80"/>
+
+  <!-- Diamond lattice texture across full canvas -->
+  <rect width="1920" height="1080" fill="url(#lattice)"/>
+
+  <!-- Subtle corner texture dots -->
+  <rect width="1920" height="1080" fill="url(#dots)"/>
+
+  <!-- Radial glows: center, top-left, bottom-right -->
+  <ellipse cx="960" cy="430" rx="700" ry="500" fill="url(#glow-c)"/>
+  <ellipse cx="280" cy="200" rx="420" ry="320" fill="url(#glow-tl)"/>
+  <ellipse cx="1680" cy="860" rx="380" ry="300" fill="url(#glow-br)"/>
+
+  <!-- Center diamond accent ring -->
+  <g fill="none" stroke="#c9a24b" opacity="0.30">
+    <circle cx="960" cy="440" r="220" stroke-width="0.8"/>
+    <circle cx="960" cy="440" r="320" stroke-width="0.4"/>
   </g>
-  <g fill="none" stroke="url(#gold)" stroke-width="6" opacity="0.85">
-    <circle cx="960" cy="470" r="150"/>
-    <path d="M880 392 L960 250 L1040 392 L960 452 Z" fill="url(#gold)" stroke-width="3"/>
-    <path d="M880 392 L1040 392" stroke-width="3"/>
+
+  <!-- Small sparkle crosses scattered -->
+  <g fill="#e3c77e" opacity="0.55">
+    <path d="M240 310 l0 -8 l0 8 M236 306 l8 0" stroke="#e3c77e" stroke-width="1.2" fill="none"/>
+    <path d="M1680 240 l0 -8 l0 8 M1676 236 l8 0" stroke="#e3c77e" stroke-width="1.2" fill="none"/>
+    <path d="M1500 760 l0 -6 l0 6 M1497 757 l6 0" stroke="#e3c77e" stroke-width="1.2" fill="none"/>
+    <path d="M450 820 l0 -6 l0 6 M447 817 l6 0" stroke="#e3c77e" stroke-width="1.2" fill="none"/>
+    <path d="M1200 150 l0 -5 l0 5 M1197 148 l6 0" stroke="#e3c77e" stroke-width="1" fill="none"/>
+    <path d="M700 900 l0 -5 l0 5 M697 898 l6 0" stroke="#e3c77e" stroke-width="1" fill="none"/>
   </g>
-  <text x="960" y="760" text-anchor="middle" font-family="Georgia, serif" font-size="84" letter-spacing="14" fill="#f3efe7">JOYERÍA DIAMANTE</text>
-  <text x="960" y="830" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" letter-spacing="10" fill="#c9a24b">ORO · PLATA · DISEÑO PERSONALIZADO</text>
+
+  <!-- Very subtle vignette overlay at bottom -->
+  <defs>
+    <linearGradient id="vignette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0908" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0a0908" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
 </svg>

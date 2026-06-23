@@ -97,9 +97,10 @@ export function RepairUploadForm() {
           className="w-full rounded-lg border border-stone-2 bg-ivory px-4 py-2.5 text-graphite outline-none focus:border-gold"
           defaultValue="soldadura"
         >
-          <option value="soldadura">Soldadura (pieza/cadena rota)</option>
+          <option value="soldadura">Soldadura de precisión (pieza/cadena rota)</option>
           <option value="ajuste-agrandar">Ajuste de talla — agrandar</option>
           <option value="ajuste-achicar">Ajuste de talla — achicar</option>
+          <option value="limpieza">Limpieza y pulido profesional</option>
           <option value="otro">Otro</option>
         </select>
       </div>

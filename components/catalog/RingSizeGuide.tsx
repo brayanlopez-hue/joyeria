@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Ruler, X } from "lucide-react";
+import { Ruler, X, Download } from "lucide-react";
 
 /**
  * Tabla de tallas (referencia). Diámetro interior en mm ↔ talla MX / US.
@@ -130,6 +130,14 @@ export function RingSizeGuide() {
                   ))}
                 </tbody>
               </table>
+
+              <a
+                href="/guia-de-tallas.svg"
+                download
+                className="mt-5 inline-flex items-center gap-2 rounded-full border border-gold/50 px-4 py-2 text-sm text-gold-deep transition-colors hover:bg-gold/10"
+              >
+                <Download size={16} /> Descargar guía imprimible
+              </a>
 
               <p className="mt-4 text-xs text-stone-3">
                 * Valores de referencia. Para una medición exacta visítanos o

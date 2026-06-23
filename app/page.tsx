@@ -2,6 +2,7 @@ import { Hero } from "@/components/home/Hero";
 import { ValueProps } from "@/components/home/ValueProps";
 import { CategoryModules } from "@/components/home/CategoryModules";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
+import { Testimonials } from "@/components/home/Testimonials";
 import { Container } from "@/components/ui/Container";
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
 import { JsonLd, organizationLd } from "@/components/seo/JsonLd";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <ValueProps />
       <CategoryModules />
       <FeaturedProducts />
+      <Testimonials />
 
       {/* CTA de cierre */}
       <section className="bg-ink py-20 text-center text-ivory">

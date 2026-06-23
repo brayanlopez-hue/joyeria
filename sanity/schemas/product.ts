@@ -52,10 +52,33 @@ export const product = defineType({
     }),
     defineField({
       name: "subcategory",
-      title: "Subcategoría (slug)",
+      title: "Subcategoría",
       type: "string",
       description:
-        "Slug de la subcategoría definida en lib/site.ts (ej. compromiso, esclavas-nombre, torzal).",
+        "Debe coincidir con un slug de subcategoría definido en lib/site.ts.",
+      options: {
+        list: [
+          // Anillos
+          { title: "Anillos · Compromiso", value: "compromiso" },
+          { title: "Anillos · Promesa", value: "promesa" },
+          // Pulseras y Esclavas
+          { title: "Pulseras · Tipo Rolex", value: "tipo-rolex" },
+          { title: "Pulseras · De Pulso", value: "de-pulso" },
+          { title: "Pulseras · Esclavas con nombre", value: "esclavas-nombre" },
+          { title: "Pulseras · Esclavas con diseño", value: "esclavas-diseno" },
+          // Cadenas
+          { title: "Cadenas · Confirmación", value: "confirmacion" },
+          { title: "Cadenas · XV Años", value: "xv-anos" },
+          { title: "Cadenas · Tipo Torzal", value: "torzal" },
+          { title: "Cadenas · Italiana", value: "italiana" },
+          // Dijes
+          { title: "Dijes · Cristo", value: "cristo" },
+          { title: "Dijes · San Judas", value: "san-judas" },
+          { title: "Dijes · San Benito", value: "san-benito" },
+          { title: "Dijes · Santa Muerte", value: "muerte" },
+          { title: "Dijes · Figuras varias", value: "figuras" },
+        ],
+      },
     }),
     defineField({
       name: "images",

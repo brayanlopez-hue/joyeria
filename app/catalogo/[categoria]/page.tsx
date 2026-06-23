@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { categories, getCategory, type Metal } from "@/lib/site";
 import { getProductsByCategory } from "@/lib/catalog";
@@ -60,9 +61,9 @@ export default async function CategoriaPage({
     <div className="pt-28 pb-10">
       <Container>
         <nav className="mb-4 text-sm text-stone-3" aria-label="Ruta">
-          <a href="/catalogo" className="hover:text-gold-deep">
+          <Link href="/catalogo" className="hover:text-gold-deep">
             Catálogo
-          </a>{" "}
+          </Link>{" "}
           / <span className="text-graphite">{cat.name}</span>
         </nav>
 

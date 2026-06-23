@@ -6,9 +6,10 @@ export const runtime = "nodejs";
 const MAX_BYTES = 8 * 1024 * 1024;
 
 const SERVICIOS: Record<string, string> = {
-  soldadura: "Soldadura (pieza/cadena rota)",
+  soldadura: "Soldadura de precisión (pieza/cadena rota)",
   "ajuste-agrandar": "Ajuste de talla — agrandar",
   "ajuste-achicar": "Ajuste de talla — achicar",
+  limpieza: "Limpieza y pulido profesional",
   otro: "Otro",
 };
 

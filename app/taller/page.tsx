@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Flame, Ruler, ShieldCheck, Camera, MessageCircle, Wrench } from "lucide-react";
+import { Flame, Ruler, Sparkles, Camera, MessageCircle, Wrench } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RepairUploadForm } from "@/components/forms/RepairUploadForm";
@@ -8,24 +8,24 @@ import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
 export const metadata: Metadata = {
   title: "Taller y Composturas",
   description:
-    "Servicio de taller de Joyería Diamante: soldadura de pulseras y cadenas rotas, y ajuste de tallas de anillos (agrandar o achicar). Sube la foto de tu pieza y cotiza.",
+    "Servicio de taller de Joyería Diamante: soldadura de precisión de cadenas y pulseras rotas, ajuste de tallas de anillos (agrandar o achicar) y limpieza y pulido profesional. Sube la foto de tu pieza y cotiza.",
 };
 
 const servicios = [
   {
     icon: Flame,
-    title: "Soldadura",
-    text: "Reparamos pulseras y cadenas rotas con soldadura profesional, respetando el acabado original de la pieza.",
+    title: "Soldadura de precisión",
+    text: "Reparamos cadenas y pulseras rotas con soldadura de precisión, respetando el acabado original de la pieza.",
   },
   {
     icon: Ruler,
     title: "Ajuste de tallas",
-    text: "Agrandamos o achicamos anillos para que queden a tu medida exacta, sin dañar el diseño.",
+    text: "Agrandamos o achicamos anillos para que queden a tu medida exacta, sin perder la estética del diseño.",
   },
   {
-    icon: ShieldCheck,
-    title: "Mantenimiento",
-    text: "Pulido, limpieza y revisión de engastes para que tus joyas luzcan como nuevas.",
+    icon: Sparkles,
+    title: "Limpieza y pulido profesional",
+    text: "Devolvemos el brillo a tus joyas con limpieza y pulido profesional.",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function TallerPage() {
           as="h1"
           eyebrow="Servicios"
           title="Taller y Composturas"
-          description="Devolvemos la vida a tus piezas favoritas. Soldadura, ajuste de tallas y mantenimiento con la misma calidad de nuestra joyería."
+          description="Devolvemos la vida a tus piezas favoritas. Soldadura de precisión, ajuste de tallas y limpieza y pulido profesional, con la misma calidad de nuestra joyería."
         />
 
         {/* Servicios */}
@@ -85,8 +85,8 @@ export default function TallerPage() {
               </p>
               <div className="mt-4">
                 <WhatsAppButton
-                  message="Hola, necesito información sobre el servicio de taller (compostura/ajuste de talla)."
-                  label="Escribir al taller"
+                  message="Hola, quiero cotizar mi reparación en el taller (compostura/ajuste de talla)."
+                  label="Cotizar mi reparación por WhatsApp"
                   variant="dark"
                 />
               </div>
