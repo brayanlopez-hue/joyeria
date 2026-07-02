@@ -35,10 +35,21 @@ export async function POST(req: Request) {
   }
 
   const safeName = `${Date.now()}${ext}`;
+  const buffer = Buffer.from(await file.arrayBuffer());
+
+  // En producción (Vercel) el disco es efímero: guardar en Vercel Blob.
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    const { put } = await import("@vercel/blob");
+    const blob = await put(`products/${safeName}`, buffer, {
+      access: "public",
+      contentType: file.type || "image/jpeg",
+      addRandomSuffix: false,
+    });
+    return NextResponse.json({ url: blob.url });
+  }
+
   const dir = join(process.cwd(), "public", "images", "products");
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-
-  const buffer = Buffer.from(await file.arrayBuffer());
   writeFileSync(join(dir, safeName), buffer);
 
   return NextResponse.json({ url: `/images/products/${safeName}` });

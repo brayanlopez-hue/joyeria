@@ -8,7 +8,7 @@ export async function GET() {
   if (!(await isAdminAuthenticated())) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   }
-  return NextResponse.json(readProducts());
+  return NextResponse.json(await readProducts());
 }
 
 export async function POST(req: Request) {
@@ -17,16 +17,18 @@ export async function POST(req: Request) {
   }
 
   const product = (await req.json()) as Product;
-  const products = readProducts();
+  const products = await readProducts();
 
   if (products.some((p) => p.slug === product.slug)) {
     return NextResponse.json({ error: "Ya existe un producto con ese slug" }, { status: 400 });
   }
 
   products.push({ ...product, _id: `local-${Date.now()}` });
-  writeProducts(products);
+  await writeProducts(products);
   revalidatePath("/admin");
   revalidatePath("/catalogo", "layout");
+  revalidatePath(`/producto/${product.slug}`);
+  revalidatePath("/");
 
   return NextResponse.json({ ok: true, slug: product.slug });
 }

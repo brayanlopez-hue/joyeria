@@ -14,8 +14,8 @@ const METAL_BADGE: Record<string, string> = {
   plata: "bg-slate-50 text-slate-600 ring-1 ring-slate-200",
 };
 
-export default function AdminPage() {
-  const products = readProducts();
+export default async function AdminPage() {
+  const products = await readProducts();
   const featured = products.filter((p) => p.featured).length;
   const oro = products.filter((p) => p.metal === "oro").length;
   const plata = products.filter((p) => p.metal === "plata").length;

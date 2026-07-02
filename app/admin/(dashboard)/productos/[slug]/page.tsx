@@ -12,7 +12,7 @@ export default async function EditProductPage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const product = readProducts().find((p) => p.slug === slug);
+  const product = (await readProducts()).find((p) => p.slug === slug);
   if (!product) notFound();
 
   return (
