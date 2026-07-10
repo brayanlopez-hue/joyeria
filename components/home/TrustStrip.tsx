@@ -13,7 +13,7 @@ const items = [
  */
 export function TrustStrip() {
   return (
-    <section className="border-b border-stone-1 bg-ivory">
+    <section className="border-b border-stone-1">
       <Container>
         <div className="grid grid-cols-2 divide-x divide-stone-1/70 py-6 sm:grid-cols-4 sm:divide-x">
           {items.map((it, i) => (
