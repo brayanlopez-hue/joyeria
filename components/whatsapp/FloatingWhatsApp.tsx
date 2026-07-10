@@ -20,13 +20,19 @@ export function FloatingWhatsApp() {
   const pathname = usePathname();
   const href = whatsappHref(messageForPathname(pathname));
 
+  // En el detalle de producto hay una barra fija de cotización en móvil;
+  // ahí ocultamos el botón flotante en móvil para no duplicar/chocar.
+  const onProduct = pathname.startsWith("/producto/");
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Cotizar por WhatsApp"
-      className="group fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full bg-[#25D366] py-3 pl-3 pr-4 text-white shadow-[0_8px_30px_-6px_rgba(37,211,102,0.6)] transition-transform duration-300 hover:scale-105 sm:bottom-7 sm:right-7"
+      className={`group fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full bg-[#25D366] py-3 pl-3 pr-4 text-white shadow-[0_8px_30px_-6px_rgba(37,211,102,0.6)] transition-transform duration-300 hover:scale-105 sm:bottom-7 sm:right-7 ${
+        onProduct ? "hidden lg:flex" : ""
+      }`}
     >
       <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#25D366] opacity-30" />
       <WhatsAppIcon />

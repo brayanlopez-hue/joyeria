@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/Hero";
+import { TrustStrip } from "@/components/home/TrustStrip";
 import { ValueProps } from "@/components/home/ValueProps";
 import { CategoryModules } from "@/components/home/CategoryModules";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
@@ -12,6 +13,7 @@ export default function HomePage() {
     <>
       <JsonLd data={organizationLd()} />
       <Hero />
+      <TrustStrip />
       <ValueProps />
       <CategoryModules />
       <FeaturedProducts />

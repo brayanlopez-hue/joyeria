@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { mainNav, categories, siteConfig, phoneTel } from "@/lib/site";
+import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
 
 /**
  * Menú móvil a pantalla completa (mobile-first). Limpio, con la navegación
@@ -75,10 +76,14 @@ export function MobileNav({
                 </Link>
               ))}
             </div>
+
+            <div className="mt-8">
+              <WhatsAppButton label="Cotizar por WhatsApp" className="w-full" />
+            </div>
           </nav>
 
-          <div className="mt-auto px-5 py-6 text-sm text-stone-3">
-            <a href={`tel:${phoneTel}`} className="block">
+          <div className="px-5 py-6 text-sm text-stone-3">
+            <a href={`tel:${phoneTel}`} className="block hover:text-graphite">
               {siteConfig.phoneDisplay}
             </a>
             <p>{siteConfig.address}</p>

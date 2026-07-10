@@ -21,7 +21,7 @@ function groupSubcategories(subs: Subcategory[]): [string, Subcategory[]][] {
 }
 
 const chipBase =
-  "rounded-full border px-4 py-1.5 text-sm transition-colors whitespace-nowrap";
+  "shrink-0 rounded-full border px-4 py-1.5 text-sm transition-colors whitespace-nowrap";
 const chipActive = "border-gold bg-gold/10 text-gold-deep font-medium";
 const chipIdle = "border-stone-1 text-graphite hover:border-gold/60";
 
@@ -57,9 +57,9 @@ export function FilterBar({
 
   return (
     <div className="space-y-4">
-      {/* Filtro por metal */}
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="mr-1 text-xs uppercase tracking-wider text-stone-3">
+      {/* Filtro por metal — deslizable en móvil, envuelve en escritorio */}
+      <div className="no-scrollbar -mx-5 flex items-center gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:px-0">
+        <span className="mr-1 shrink-0 text-xs uppercase tracking-wider text-stone-3">
           Metal
         </span>
         <Link
@@ -82,8 +82,8 @@ export function FilterBar({
       {/* Filtro por subcategoría */}
       {subcategories && subcategories.length > 0 && (
         <div className="space-y-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="mr-1 text-xs uppercase tracking-wider text-stone-3">
+          <div className="no-scrollbar -mx-5 flex items-center gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:px-0">
+            <span className="mr-1 shrink-0 text-xs uppercase tracking-wider text-stone-3">
               Tipo
             </span>
             <Link
@@ -99,8 +99,8 @@ export function FilterBar({
           {/* Con grupos: un sub-encabezado por grupo */}
           {hasGroups &&
             groupSubcategories(subcategories).map(([group, subs]) => (
-              <div key={group} className="flex flex-wrap items-center gap-2">
-                <span className="mr-1 text-[11px] uppercase tracking-wider text-gold-deep/80">
+              <div key={group} className="no-scrollbar -mx-5 flex items-center gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:px-0">
+                <span className="mr-1 shrink-0 text-[11px] uppercase tracking-wider text-gold-deep/80">
                   {group}
                 </span>
                 {subs.map((s) => (

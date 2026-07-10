@@ -11,6 +11,7 @@ import { Container } from "@/components/ui/Container";
 import { MetalBadge } from "@/components/ui/MetalBadge";
 import { ProductGallery } from "@/components/catalog/ProductGallery";
 import { ProductActions } from "@/components/catalog/ProductActions";
+import { ProductStickyBar } from "@/components/catalog/ProductStickyBar";
 import { ProductCard } from "@/components/catalog/ProductCard";
 import { JsonLd, productLd } from "@/components/seo/JsonLd";
 
@@ -66,7 +67,7 @@ export default async function ProductoPage({
     .slice(0, 4);
 
   return (
-    <div className="pt-28 pb-10">
+    <div className="pt-28 pb-28 lg:pb-10">
       <JsonLd data={productLd(product)} />
       <Container>
         {/* Ruta */}
@@ -137,6 +138,12 @@ export default async function ProductoPage({
             </p>
           </div>
         </div>
+
+        <ProductStickyBar
+          productName={product.name}
+          metal={product.metal}
+          priceLabel={product.priceFrom != null ? formatPrice(product.priceFrom) : undefined}
+        />
 
         {/* Relacionados */}
         {related.length > 0 && (

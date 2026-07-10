@@ -37,11 +37,11 @@ export function Testimonials() {
           light
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="no-scrollbar -mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-3">
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="relative flex flex-col gap-4 rounded-2xl border border-white/8 p-6 backdrop-blur-sm transition-colors duration-300 hover:border-gold/30"
+              className="relative flex w-[85%] shrink-0 snap-center flex-col gap-4 rounded-2xl border border-white/8 p-6 backdrop-blur-sm transition-colors duration-300 hover:border-gold/30 sm:w-auto sm:shrink"
               style={{ background: "rgba(255,255,255,0.04)" }}
             >
               {/* Comillas decorativas */}
