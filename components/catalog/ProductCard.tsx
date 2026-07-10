@@ -29,7 +29,7 @@ export function ProductCard({ product }: { product: Product }) {
           alt={cover.alt}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.07]"
         />
         {product.engraving && (
           <span className="absolute left-3 top-3 rounded-full bg-ink/85 px-2.5 py-1 text-[10px] uppercase tracking-wider text-gold-soft backdrop-blur">
@@ -37,6 +37,9 @@ export function ProductCard({ product }: { product: Product }) {
           </span>
         )}
       </div>
+
+      {/* Filete dorado que se revela en hover */}
+      <span className="block h-px w-full origin-left scale-x-0 bg-gradient-to-r from-gold via-gold-soft to-transparent transition-transform duration-500 group-hover:scale-x-100" />
 
       <div className="flex flex-1 flex-col p-4">
         <MetalBadge metal={product.metal} purity={product.purity} />
@@ -53,8 +56,9 @@ export function ProductCard({ product }: { product: Product }) {
               </span>
             </span>
           )}
-          <span className="text-sm font-medium text-gold-deep transition-colors group-hover:text-gold">
-            Ver pieza →
+          <span className="inline-flex items-center gap-1 text-sm font-medium text-gold-deep transition-colors group-hover:text-gold">
+            Ver pieza
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </span>
         </div>
       </div>

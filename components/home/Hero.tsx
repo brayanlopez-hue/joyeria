@@ -37,12 +37,23 @@ export function Hero() {
       {/* Veladura para legibilidad */}
       <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink/80" />
 
+      {/* Resplandor dorado sutil detrás del texto */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[720px] -translate-x-1/2 -translate-y-1/2 opacity-30"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(201,162,75,0.25), transparent 65%)",
+        }}
+      />
+
       <div className="relative z-10 mx-auto max-w-3xl px-5 text-center text-ivory">
         <motion.span
           {...fade(0)}
-          className="mb-5 inline-block text-xs uppercase tracking-[0.35em] text-gold-soft"
+          className="mb-5 inline-flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-gold-soft"
         >
+          <span className="hidden h-px w-10 bg-gradient-to-r from-transparent to-gold/70 sm:block" />
           Diseño · Oro · Plata
+          <span className="hidden h-px w-10 bg-gradient-to-l from-transparent to-gold/70 sm:block" />
         </motion.span>
         <motion.h1
           {...fade(0.1)}
@@ -70,8 +81,9 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Indicador de scroll */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-ivory/60">
+      {/* Indicador de scroll: rombo dorado + línea */}
+      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2">
+        <span className="block h-1.5 w-1.5 rotate-45 border border-gold/70" />
         <span className="block h-10 w-px animate-pulse bg-gradient-to-b from-gold to-transparent" />
       </div>
     </section>

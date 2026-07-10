@@ -41,7 +41,7 @@ export function Testimonials() {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="relative flex flex-col gap-4 rounded-2xl border border-white/8 bg-white/4 p-6 backdrop-blur-sm"
+              className="relative flex flex-col gap-4 rounded-2xl border border-white/8 p-6 backdrop-blur-sm transition-colors duration-300 hover:border-gold/30"
               style={{ background: "rgba(255,255,255,0.04)" }}
             >
               {/* Comillas decorativas */}

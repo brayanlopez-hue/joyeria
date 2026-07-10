@@ -5,11 +5,12 @@ import { categories } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const imgBase: Record<string, string> = {
-  anillos: "anillo",
-  pulseras: "pulsera",
-  cadenas: "cadena",
-  dijes: "dije",
+// Foto real representativa de cada categoría (las mejores del catálogo).
+const categoryCover: Record<string, string> = {
+  anillos: "/images/products/photo-anillo-compromiso-solitario-oro.jpg",
+  pulseras: "/images/products/photo-esclava-nombre-plata.jpg",
+  cadenas: "/images/products/photo-cadena-italiana-oro.jpg",
+  dijes: "/images/products/photo-dije-cristo-oro.jpg",
 };
 
 /** Módulos de acceso rápido a categorías + Taller (mapa del sitio). */
@@ -28,20 +29,25 @@ export function CategoryModules() {
             <Link
               key={c.slug}
               href={`/catalogo/${c.slug}`}
-              className="group relative overflow-hidden rounded-2xl border border-stone-1 bg-cream"
+              className="group relative overflow-hidden rounded-2xl border border-stone-1 bg-cream transition-all duration-300 hover:border-gold/50 hover:shadow-[var(--shadow-soft)]"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src={`/images/products/${imgBase[c.slug]}-oro.svg`}
+                  src={categoryCover[c.slug]}
                   alt={c.name}
                   fill
                   sizes="(max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent transition-opacity duration-300 group-hover:from-ink/90" />
               </div>
               <div className="absolute inset-x-0 bottom-0 p-4">
-                <h3 className="font-display text-xl text-ivory">{c.name}</h3>
+                <h3 className="font-display text-xl text-ivory">
+                  {c.name}
+                  <span className="ml-2 inline-block text-gold-soft opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                    →
+                  </span>
+                </h3>
                 <p className="mt-0.5 line-clamp-1 text-xs text-stone-2">{c.blurb}</p>
               </div>
             </Link>

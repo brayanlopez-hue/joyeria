@@ -26,10 +26,13 @@ export function ValueProps() {
     <section className="border-y border-stone-1 bg-cream/60 py-16">
       <Container>
         <SectionHeading eyebrow="Por qué elegirnos" title="¿Por qué elegirnos?" />
-        <div className="mt-12 grid gap-8 sm:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-3">
           {items.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="flex flex-col items-center text-center">
-              <span className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-white text-gold-deep">
+            <div
+              key={title}
+              className="group flex flex-col items-center rounded-2xl border border-stone-1 bg-white/70 p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[var(--shadow-card)]"
+            >
+              <span className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-white text-gold-deep transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-ink">
                 <Icon size={24} />
               </span>
               <h3 className="mt-4 font-display text-xl text-ink">{title}</h3>
