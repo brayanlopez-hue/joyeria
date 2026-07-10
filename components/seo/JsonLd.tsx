@@ -29,7 +29,6 @@ export function organizationLd(): Record<string, unknown> {
       streetAddress: siteConfig.address,
     },
     image: `${siteConfig.url}/images/og-image.svg`,
-    sameAs: [siteConfig.social.instagram, siteConfig.social.facebook],
   };
 }
 

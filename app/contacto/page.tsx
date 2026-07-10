@@ -6,7 +6,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { MapEmbed } from "@/components/contact/MapEmbed";
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
-import { InstagramIcon, FacebookIcon } from "@/components/ui/SocialIcons";
 
 export const metadata: Metadata = {
   title: "Contacto y Personalización",
@@ -57,27 +56,6 @@ export default function ContactoPage() {
                 label="Escríbenos por WhatsApp"
                 className="w-full"
               />
-              <div className="flex items-center gap-3">
-                {/* Instagram destacado ('es vital' para joyería) */}
-                <a
-                  href={siteConfig.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-1 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF] px-5 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
-                >
-                  <InstagramIcon size={20} />
-                  Síguenos {siteConfig.social.instagramHandle}
-                </a>
-                <a
-                  href={siteConfig.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-stone-2 text-graphite transition-colors hover:border-gold hover:text-gold-deep"
-                >
-                  <FacebookIcon size={20} />
-                </a>
-              </div>
             </div>
 
             <MapEmbed />

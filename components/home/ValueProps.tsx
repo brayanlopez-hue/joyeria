@@ -1,4 +1,4 @@
-import { ShieldCheck, Sparkles, Truck } from "lucide-react";
+import { ShieldCheck, Sparkles, Wrench } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -14,13 +14,13 @@ const items = [
     text: "Diseñamos a tu medida: grabados, nombres y figuras únicas para ti.",
   },
   {
-    icon: Truck,
-    title: "Envíos seguros y entregas rápidas",
-    text: "Enviamos a todo el país con empaque discreto y seguimiento.",
+    icon: Wrench,
+    title: "Taller de composturas propio",
+    text: "Reparamos, soldamos y ajustamos tallas en nuestro propio taller del Centro Histórico.",
   },
 ];
 
-/** Sección "¿Por qué elegirnos?": garantía, personalización y envíos. */
+/** Sección "¿Por qué elegirnos?": garantía, personalización y taller. */
 export function ValueProps() {
   return (
     <section className="border-y border-stone-1 bg-cream/60 py-16">

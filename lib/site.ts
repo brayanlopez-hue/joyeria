@@ -22,12 +22,6 @@ export const siteConfig = {
   // Embed de Google Maps (se sustituye por la API key real en .env)
   mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "",
   mapsQuery: "Av.+5+de+Mayo+40+Centro+Histórico+Cuauhtémoc+Ciudad+de+México",
-
-  social: {
-    instagram: "https://instagram.com/joyeriadiamante",
-    instagramHandle: "@joyeriadiamante",
-    facebook: "https://facebook.com/joyeriadiamante",
-  },
 } as const;
 
 /** Teléfono normalizado para enlaces `tel:` (solo dígitos y '+'). */

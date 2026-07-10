@@ -133,7 +133,7 @@ export default async function ProductoPage({
             </div>
 
             <p className="mt-4 text-center text-xs text-stone-3">
-              Cotización sin compromiso. Envíos a todo el país.
+              Cotización sin compromiso por WhatsApp.
             </p>
           </div>
         </div>

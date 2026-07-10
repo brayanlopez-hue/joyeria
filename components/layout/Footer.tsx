@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { siteConfig, categories, mainNav, phoneTel } from "@/lib/site";
-import { InstagramIcon, FacebookIcon } from "@/components/ui/SocialIcons";
 
 /** Pie de página con navegación, categorías y datos de contacto. */
 export function Footer() {
@@ -29,28 +28,6 @@ export function Footer() {
             {siteConfig.tagline}. Diseño, personalización y taller con garantía de
             metales.
           </p>
-          <div className="mt-5 flex items-center gap-3">
-            {/* Instagram destacado (canal clave para joyería) */}
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Instagram ${siteConfig.social.instagramHandle}`}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF] px-4 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.03]"
-            >
-              <InstagramIcon size={18} />
-              {siteConfig.social.instagramHandle}
-            </a>
-            <a
-              href={siteConfig.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="rounded-full border border-graphite p-2 text-stone-2 transition-colors hover:border-gold hover:text-gold"
-            >
-              <FacebookIcon size={18} />
-            </a>
-          </div>
         </div>
 
         <div>
