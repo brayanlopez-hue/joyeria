@@ -5,6 +5,7 @@ import { CategoryModules } from "@/components/home/CategoryModules";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Container } from "@/components/ui/Container";
+import { GoldParticles } from "@/components/ui/GoldParticles";
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
 import { JsonLd, organizationLd } from "@/components/seo/JsonLd";
 
@@ -21,6 +22,7 @@ export default function HomePage() {
 
       {/* CTA de cierre */}
       <section className="relative overflow-hidden bg-charcoal py-24 text-center text-ivory">
+        <GoldParticles />
         {/* Resplandor dorado central */}
         <div
           className="pointer-events-none absolute left-1/2 top-0 h-full w-[900px] -translate-x-1/2 opacity-25"

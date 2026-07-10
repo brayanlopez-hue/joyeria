@@ -103,8 +103,64 @@ h2 {
   background-color: rgba(14, 14, 16, 0.92);
 }
 
+/* ── Partículas doradas (hero/CTA) ─────────────────────────
+   Destellos sutiles que flotan hacia arriba y parpadean.
+   Solo transform/opacity: baratas para el GPU. */
+@keyframes gold-drift {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--p-opacity, 0.7);
+  }
+  90% {
+    opacity: var(--p-opacity, 0.7);
+  }
+  100% {
+    transform: translateY(-38vh) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes gold-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.8) rotate(45deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15) rotate(45deg);
+  }
+}
+
+.gold-particle {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--color-gold-soft), var(--color-gold) 60%, transparent);
+  animation: gold-drift var(--p-duration, 14s) linear infinite;
+  animation-delay: var(--p-delay, 0s);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.gold-spark {
+  position: absolute;
+  background: var(--color-gold-soft);
+  animation: gold-twinkle var(--p-duration, 5s) ease-in-out infinite;
+  animation-delay: var(--p-delay, 0s);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .gold-particle,
+  .gold-spark {
+    animation: none;
+    opacity: 0.25;
   }
 }

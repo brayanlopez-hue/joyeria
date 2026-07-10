@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ButtonLink } from "@/components/ui/Button";
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
+import { GoldParticles } from "@/components/ui/GoldParticles";
 
 /**
  * Hero principal con soporte para video HD en bucle (poster como fallback).
@@ -36,6 +37,9 @@ export function Hero() {
       </video>
       {/* Veladura para legibilidad */}
       <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink/80" />
+
+      {/* Destellos dorados flotando (sutil, CSS puro) */}
+      <GoldParticles />
 
       {/* Resplandor dorado sutil detrás del texto */}
       <div
