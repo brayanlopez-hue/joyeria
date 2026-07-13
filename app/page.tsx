@@ -3,6 +3,7 @@ import { TrustStrip } from "@/components/home/TrustStrip";
 import { ValueProps } from "@/components/home/ValueProps";
 import { CategoryModules } from "@/components/home/CategoryModules";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
+import { HowWeWork } from "@/components/home/HowWeWork";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Container } from "@/components/ui/Container";
 import { GoldParticles } from "@/components/ui/GoldParticles";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ValueProps />
       <CategoryModules />
       <FeaturedProducts />
+      <HowWeWork />
       <Testimonials />
 
       {/* CTA de cierre */}

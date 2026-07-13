@@ -71,8 +71,8 @@ export function Hero() {
           {...fade(0.2)}
           className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-stone-2 sm:text-lg"
         >
-          Diseñamos anillos de compromiso, esclavas grabadas, cadenas y dijes, y
-          reparamos tus joyas en nuestro taller de composturas.
+          Diseñamos anillos de compromiso, esclavas grabadas, cadenas y dijes.
+          También reparamos y ajustamos tus joyas.
         </motion.p>
         <motion.div
           {...fade(0.3)}

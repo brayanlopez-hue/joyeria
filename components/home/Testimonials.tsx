@@ -1,6 +1,7 @@
 import { Star, Quote } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 
 const testimonials = [
   {
@@ -30,12 +31,14 @@ export function Testimonials() {
   return (
     <section className="bg-ink py-20 text-ivory">
       <Container>
-        <SectionHeading
-          eyebrow="Clientes felices"
-          title="Lo que dicen nuestros clientes"
-          description="Cada pieza lleva detrás una historia. Esto es lo que nos comparten quienes confían en nosotros."
-          light
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Clientes felices"
+            title="Lo que dicen nuestros clientes"
+            description="Cada pieza lleva detrás una historia. Esto es lo que nos comparten quienes confían en nosotros."
+            light
+          />
+        </Reveal>
 
         <div className="no-scrollbar -mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-3">
           {testimonials.map((t) => (

@@ -11,7 +11,8 @@ export const siteConfig = {
   description:
     "Joyería de alta gama especializada en el diseño de piezas personalizadas en oro y plata, anillos de compromiso, esclavas grabadas, cadenas, dijes y servicio de taller (composturas).",
   // URL pública (ajustar al dominio real en producción)
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://joyeriadiamante.mx",
+  // URL pública real (cámbiala aquí o vía env cuando tengan dominio propio)
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://joyeria-henna.vercel.app",
   locale: "es_MX",
 
   // Contacto / conversión

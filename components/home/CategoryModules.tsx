@@ -4,6 +4,7 @@ import { Wrench } from "lucide-react";
 import { categories } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 
 // Foto real representativa de cada categoría (las mejores del catálogo).
 const categoryCover: Record<string, string> = {
@@ -18,14 +19,17 @@ export function CategoryModules() {
   return (
     <section className="py-20">
       <Container>
-        <SectionHeading
-          eyebrow="Catálogo"
-          title="Explora por categoría"
-          description="Cada pieza puede personalizarse en oro o plata. Encuentra el estilo que buscas o pídelo a tu medida."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Catálogo"
+            title="Explora por categoría"
+            description="Cada pieza puede personalizarse en oro o plata. Encuentra el estilo que buscas o pídelo a tu medida."
+          />
+        </Reveal>
 
         <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-3">
-          {categories.map((c) => (
+          {categories.map((c, i) => (
+            <Reveal key={c.slug} delay={i * 0.08}>
             <Link
               key={c.slug}
               href={`/catalogo/${c.slug}`}
@@ -51,9 +55,11 @@ export function CategoryModules() {
                 <p className="mt-0.5 line-clamp-1 text-xs text-stone-2">{c.blurb}</p>
               </div>
             </Link>
+            </Reveal>
           ))}
 
           {/* Módulo de Taller (servicio, no categoría) */}
+          <Reveal delay={0.32} className="grid">
           <Link
             href="/taller"
             className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-ink p-5 text-ivory transition-colors hover:bg-graphite"
@@ -69,6 +75,7 @@ export function CategoryModules() {
               </span>
             </div>
           </Link>
+          </Reveal>
         </div>
       </Container>
     </section>

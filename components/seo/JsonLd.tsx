@@ -28,7 +28,7 @@ export function organizationLd(): Record<string, unknown> {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address,
     },
-    image: `${siteConfig.url}/images/og-image.svg`,
+    image: `${siteConfig.url}/images/og-image.jpg`,
   };
 }
 

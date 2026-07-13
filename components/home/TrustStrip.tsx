@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 const items = [
   { value: "100%", label: "Oro y plata certificados" },
   { value: "A tu medida", label: "Diseño personalizado" },
-  { value: "Taller propio", label: "Composturas y ajustes" },
+  { value: "Composturas", label: "Reparación y ajuste de talla" },
   { value: "Centro Histórico", label: "CDMX · atención directa" },
 ];
 
